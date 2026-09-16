@@ -1,0 +1,24 @@
+dataset: data/REPLACE_WITH_FINGERPRINT_OR_USE_CLI_DATASET_OPTION
+start: '2019-02-01'
+end: '2022-12-30'
+strategy: momentum
+parameters:
+  lookback: 252
+  skip: 21
+  top_n: 4
+universe:
+  symbols: [AAPL, MSFT, JNJ, JPM, XOM, WMT, PG, KO]
+  label: 'Illustrative manually selected US survivors; NOT point-in-time constituents'
+portfolio:
+  initial_cash: 100000
+  gross_exposure: 1.0
+  max_weight: 0.25
+costs:
+  commission_bps: 1
+  spread_bps: 4
+  slippage_bps: 2
+periods:
+  - {name: train, start: '2019-01-01', end: '2020-12-31'}
+  - {name: validation, start: '2021-01-01', end: '2022-12-31'}
+  - {name: test, start: '2023-01-01', end: '2024-12-31'}
+allow_test: false

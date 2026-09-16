@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=75,<85"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "quantlab"
+version = "0.1.0"
+description = "Conservative local daily equity research laboratory"
+requires-python = ">=3.12,<3.14"
+dependencies = ["pandas>=2.2,<3", "numpy>=1.26,<3", "pyarrow>=17,<24", "duckdb>=1.1,<2", "plotly>=5.24,<7", "pydantic>=2.9,<3", "PyYAML>=6,<7", "requests>=2.32,<3", "exchange-calendars>=4.5,<5"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "mypy>=1.14,<2", "pandas-stubs", "types-PyYAML", "types-requests", "jupyterlab>=4,<5", "nbclient", "ipykernel"]
+[project.scripts]
+quantlab = "quantlab.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
